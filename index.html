@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ebrar Seni Çok Seviyorum</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #ffe6e6;
+            color: #ff4d4d;
+            padding: 20px;
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-top: 20px;
+        }
+        .akrostis {
+            margin-top: 30px;
+            font-size: 1.3em;
+            line-height: 1.8em;
+            font-style: italic;
+        }
+        .love-letter {
+            margin-top: 40px;
+            font-size: 1.1em;
+            max-width: 90%;
+            margin-left: auto;
+            margin-right: auto;
+            background: #fff0f0;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(255, 0, 0, 0.3);
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 1em;
+            color: #fff;
+            background-color: #ff4d4d;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #ff3333;
+        }
+        .heart {
+            position: absolute;
+            color: red;
+            font-size: 20px;
+            animation: float 4s infinite ease-in-out;
+        }
+        @keyframes float {
+            0% { transform: translateY(0) scale(1); opacity: 1; }
+            50% { transform: translateY(-100px) scale(1.2); opacity: 0.7; }
+            100% { transform: translateY(-200px) scale(1); opacity: 0; }
+        }
+
+        /* 📸 Fotoğrafları Mobil Uyumlu Yapıyoruz */
+        .photo-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+            gap: 10px;
+        }
+        .photo {
+            width: 45%; /* Fotoğraflar ekranın %45'ini kaplasın */
+            max-width: 300px; /* Maksimum boyut */
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* 📱 Mobil İçin Fotoğraf Düzeni */
+        @media (max-width: 768px) {
+            .photo-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .photo {
+                width: 80%; /* Küçük ekranda daha büyük olsun */
+                max-width: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Ebrar Seni Çok Seviyorum ❤️</h1>
+
+    <div class="akrostis">
+        <p>E: Eşsiz güzelliğinle hayatıma ışık saçıyorsun,</p>
+        <p>B: Birlikte olduğumuz her an bir hazine.</p>
+        <p>R: Ruhumun derinliklerinde sadece sen varsın,</p>
+        <p>A: Aşkın en güzel tanımısın benim için.</p>
+        <p>R: Rüyalarımı süsleyen tek gerçek sensin.</p>
+    </div>
+
+    <div class="love-letter">
+        <p>Sevgilim Ebrar,</p>
+        <p>Seninle her geçen gün daha da güzelleşiyor. Senin gülüşün, sesin ve varlığın benim için dünyadaki en değerli şeylerden biri. Kalbim sadece senin için atıyor ve her an seni düşünmek bile beni mutlu ediyor.</p>
+        <p>Hayatımın her anında seninle olmak, seninle yaşlanmak, seninle her anı paylaşmak istiyorum. Senin gözlerin benim cennetim, ellerin en güvenli limanım. Ne olursa olsun, her zaman yanında olacağım ve seni her şeyden çok seveceğim.</p>
+        <p>Seni sonsuz bir aşkla seviyorum, benim güzel meleğim. 💖</p>
+    </div>
+
+    <!-- 📸 Fotoğraf Bölümü -->
+    <div class="photo-container">
+        <img src="https://i.ibb.co/xqTt0cjh/ebrar1.jpg" class="photo">
+        <img src="https://i.ibb.co/84TDHW79/ebrar2.jpg" class="photo">
+    </div>
+
+    <!-- 🎵 Müzik Dosyası -->
+    <audio id="lovesong" autoplay loop>
+        <source src="https://voca.ro/12wOMoOrn8v6" type="audio/mpeg">
+        Tarayıcınız ses dosyasını desteklemiyor.
+    </audio>
+	<!-- 🎵 Şarkı Kısmı -->
+<h2>Senin İçin Bir Şarkı ❤️</h2>
+<iframe src="https://vocaroo.com/embed/12wOMoOrn8v6" width="300" height="60" frameborder="0"></iframe>
+    <script>
+        const music = document.getElementById('lovesong');
+
+        // Otomatik çalmayı garantiye almak için
+        window.addEventListener('load', () => {
+            music.volume = 0.5; // %50 ses seviyesi
+            music.play().catch(error => {
+                console.log("Otomatik oynatma engellendi. Kullanıcı bir etkileşim yapmalı.");
+            });
+        });
+
+        function toggleMusic() {
+            if (music.paused) {
+                music.play();
+            } else {
+                music.pause();
+            }
+        }
+
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.innerHTML = '❤️';
+            document.body.appendChild(heart);
+            heart.style.left = Math.random() * window.innerWidth + 'px';
+            heart.style.bottom = '0px';
+
+            let animationTime = Math.random() * 2 + 3;
+            heart.style.animationDuration = animationTime + 's';
+
+            setTimeout(() => {
+                heart.remove();
+            }, animationTime * 1000);
+        }
+
+        setInterval(createHeart, 500);
+    </script>
+</body>
+</html>
